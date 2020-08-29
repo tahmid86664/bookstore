@@ -1,0 +1,26 @@
+extends layout
+
+block content
+    .container
+        h1 Login
+        p Please Login using the form below
+        p.errors
+            if errors
+                - var count = 0;
+                each e in errors
+                    p.alert.alert-danger= e
+                    - count++;
+        form(method='post', action='/users/login')
+            .form-group
+                label Username
+                input.form-control(name='username', type='text', placeholder='Username')
+            .form-group
+                label Password
+                input.form-control(name='password', type='password', placeholder='Enter password')
+            button.btn.btn-default.btn-dark(name='login', type='submit') Login
+            br
+            br
+            a.btn.btn-primary(href="/users/register") Create an account
+
+
+

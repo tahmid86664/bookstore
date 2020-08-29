@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to Book Store
+  div.book-show
+    .row
+      if books
+        each book in books
+          .book-container.col-xs-12.col-md-4.col-lg-3.col-xl-2
+            div.book-image-container
+              a(href="/products/show/#{book._id}")
+                img(src="./images/upload/#{book.book_cover}")
+            .book-heading
+              a(href="#")
+                h3 #{truncateText(book.name, 30)}...
+            p
+              b by #{book.writer}
+            p.book-description #{truncateText(book.description, 300)}...
+            a.view-btn(href="/products/show/#{book._id}") View
+            .price $#{book.price}

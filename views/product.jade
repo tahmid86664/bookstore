@@ -1,0 +1,50 @@
+extends layout
+
+block content
+    .container
+        |catagory
+        if book
+            h1= book.name
+            h4= book.writer
+            .row
+                .col-xs-12.col-md-4
+                    .product-image-container
+                        img(src="/images/upload/#{book.book_cover}")
+                .col-xs-12.col-md-8
+                    .product-description-container
+                        p #{truncateText(book.description, 1200)}
+                            span#dots ...
+                            span#read-more(style="display: none;") #{truncateRemainingText(book.description, 1200)}
+                        a#read-more-btn(onclick="readMore()") Read more
+                        .price Price: $#{book.price}
+                        br
+                        div.buy-button-class
+                            form(method="post")
+                                .form-group
+                                    label(for="qtyLabel") Qty 
+                                    input(type="number", name="qty", min="1" id="qty-input")
+                                button.btn.btn-dark(type="submit", name="add_to_cart_btn" formaction="/products/show/#{book._id}/addtocart") Add to cart
+                                br
+                                button.btn.btn-dark(type="submit", name="buy_now_btn", formaction="/products/show/#{book._id}/buynow") Buy now
+            hr
+            .row
+                .question-container.col-xs-12.col-md-4
+                    form(action="/products/show/#{book._id}", method='post')
+                        label(for="questionLabel") Ask any question
+                        input.form-control(type="text", name="question" placeholder="here...")
+                        br
+                        button.btn.btn-primary(type='submit', value="submit") Submit
+                .comments-container.col-xs-12.col-md-8
+                    if comments
+                        each comment in comments
+                            .row
+                                .image-container.col-md-1
+                                    img(src="/images/users/profile/#{comment.personImage}")
+                                .comment-container.col-md-11
+                                    h5= comment.person
+                                    p= comment.question
+                                    a(href="#") Reply
+                                br
+
+
+

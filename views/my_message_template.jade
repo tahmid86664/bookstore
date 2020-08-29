@@ -1,0 +1,17 @@
+.messages()
+  each type in Object.keys(messages)
+    ul(class="#{type}")
+      each message in messages[type]
+        li.alert.alert-success= message
+script.
+  function myFunction() {
+    setTimeout(function(){ 
+      let x = document.getElementsByClassName("messages")[0].className;
+      document.getElementsByClassName("messages")[0].className = x + ' d-none'
+    }, 2000);
+  }
+  myFunction()
+
+
+
+

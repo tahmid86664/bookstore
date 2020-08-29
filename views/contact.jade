@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    h1 Contact Us
+    p send your message to us by filling up the form
+    form(action="/contact", method='post')
+        .form-group
+            label(for="name") Full Name
+            input.form-control(type="text", name="name", placeholder="Enter your name")
+        .form-group
+            label(for="email") Email
+            input.form-control(type="email", name="email", placeholder="Enter your email")
+        .form-group
+            label(for="name") Full Name
+            textarea.form-control(type="text", name="message", placeholder="Write your message...")
+        button.btn.btn-primary(type='submit', value='submit') Submit
+

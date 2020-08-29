@@ -1,0 +1,28 @@
+extends layout
+
+block content
+    .container
+        ul.errors
+            if errors
+                each error in errors
+                    li.alert.alert-danger #{error.msg}
+        form(action="/admin/manage/add_book", method="post" enctype='multipart/form-data')
+            .form-group
+                label(for="bookName") Book Name
+                input.form-control(type="text", name="book_name", placeholder="please enter the book name")
+            .form-group
+                label(for="writerName") Writer Name
+                input.form-control(type="text", name="writer_name", placeholder="please enter the writer name")
+            .form-group
+                label(for="descriptionLabel") Description
+                textarea.form-control(type="text", name="description", placeholder="please write about the book...")
+            .form-group
+                label(for="priceLabel") Price
+                input.form-control(type="text", name="book_price", placeholder="please give a price...")
+            .form-group
+                label(for="coverImageLabel") Book Cover Image: 
+                br
+                input(type="file" name='book_cover')
+            button.btn.btn-primary(type='submit', value='submit') Submit
+
+s

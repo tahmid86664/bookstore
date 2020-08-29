@@ -1,0 +1,173 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+
+footer{
+  background-color: #f6f6f6;
+  margin: 50px 0;
+  padding: 25px 20px;
+  font-size: 1.2rem;
+  text-align: center;
+  overflow: auto;
+}
+
+/*errors design*/
+.errors li{
+  list-style: none;
+}
+
+
+/* book show in home */
+.book-container p{
+  margin: 0;
+  padding: 0;
+}
+
+.book-image-container{
+  width: 100%;
+  height: 350px;
+}
+
+.book-image-container img{
+  height: 100%;
+  width: 100%;
+}
+
+.book-container .book-heading a{
+  text-decoration: none;
+  color: #424242;
+}
+
+.book-container .book-heading a:hover{
+  color: #036d80;
+}
+
+.price{
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+
+/* single product */
+.product-image-container{
+  width: 100%;
+  height: 400px;
+}
+
+.product-image-container img{
+  width: 100%;
+  height: 100%;
+}
+
+.product-description-container p{
+  text-align: justify;
+}
+
+.buy-button-class a{
+  margin: 5px 0;
+}
+
+.buy-button-class button{
+  margin: 5px 0;
+}
+
+/* read more */
+#read-more-btn{
+  color: #4d96f5;
+  cursor: pointer;
+}
+
+#read-more-btn:hover{
+  color: #3171e9;
+}
+
+
+
+
+/*vartical line*/
+.vr{
+  margin: 10px;
+  width: 5px;
+  height: 100%;
+  display: inline-block;
+  background-color: #424242;
+}
+
+
+/* comment area and user review area */
+.comments-container p {
+  margin: 0;
+  padding: 0;
+}
+
+.comments-container a {
+  display: block;
+}
+
+.comments-container .image-container{
+  display: inline-block;
+  width: 100%;
+  height: 50px;
+}
+
+.image-container img{
+  width: 100%;
+  height: 100%;
+}
+
+/* quantity */
+#qty-input{
+  width: 50px;
+  margin-right: 20px;
+  margin-left: 10px;
+}
+
+
+/* cart table */
+.my-cart table{
+  margin-top: 50px;
+  width: 100%;
+}
+
+.my-cart td, th{
+  border: 1px solid #00B7FF;
+  text-align: left;
+  padding: 10px;
+}
+
+.my-cart a{
+  float: right;
+  margin-left: 10px;
+}
+
+.my-cart #qty-final{
+  display: inline-block;
+  padding: 5px 20px;
+  margin-right: 10px;
+  border: 1px solid #8a8a8a;
+}
+
+#remove-button{
+  background-color: #fc8a86;
+  padding: 5px;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+#remove-button :hover{
+  text-decoration: none;
+  background-color: #f74d4d;
+}
+

@@ -1,0 +1,63 @@
+doctype html
+html
+  head
+    title #{title}: BookStore
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+  body
+    nav.navbar.navbar-expand-lg.fixed-top.navbar-light.bg-light
+      a.navbar-brand(href='/') Books Store
+      ul.nav.mr-auto.nav-pills
+        li.nav-item
+          a.nav-link(class=(title === 'Home' ? 'active' : ''))(href='/') Home
+        if !user
+          li.nav-item
+            a.nav-link(class=(title === 'Login' ? 'active' : ''))(href='/users/login') Login
+          li.nav-item
+            a.nav-link(class=(title === 'Register' ? 'active' : ''))(href='/users/register') Register
+        li.nav-item
+          a.nav-link(class=(title === 'About' ? 'active' : ''))(href='/about') About
+        li.nav-item
+          a.nav-link(class=(title === 'Contact' ? 'active' : ''))(href='/contact') Contact
+        //- li.nav-items
+        //-   a.nav-link(class=(title === 'Manage' ? 'active' : ''))(href='/admin/manage') Manage  
+        ul.nav.navbar-right
+          li.nav-items
+            a.nav-link(class=(title === 'Cart' ? 'active' : ''))(href='/cart') Cart
+              img(src='/images/icons-shopping-cart.png', alt='cart-icon' style="width: 30px; height:30px;")
+          if user
+            li.nav-items
+              .dropdown.show
+                a#dropdownMenuLink.btn.btn-info.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  | My Profile
+                  div.dropdown-menu(aria-labelledby='dropdownMenuLink')
+                    a.dropdown-item(href='/users/user_id/profile') Profile
+                    a.dropdown-item(href='/users/user_id/purchased') Purchased
+                    a.dropdown-item(href='/users/logout') Logout
+
+    br
+    .container
+      != messages('my_message_template.jade', locals)
+    block content
+    footer
+      p &copy; Book Store, 2020
+    script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js", integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj", crossorigin="anonymous")
+    script(src='/javascripts/bootstrap.js')
+
+    script.
+      function readMore(){
+          let dots = document.getElementById("dots");
+          let read_more = document.getElementById("read-more");
+          let read_more_btn = document.getElementById("read-more-btn");
+
+          if(read_more.style.display == "none"){
+              dots.style.display = "none";
+              read_more.style.display = "inline"
+              read_more_btn.innerHTML = "Read less"
+          }else{
+              dots.style.display = "inline";
+              read_more.style.display = "none"
+              read_more_btn.innerHTML = "Read more"
+          }
+      }
+

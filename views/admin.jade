@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    .container
+        if error
+            p.alert.alert-danger= error
+        form(action="/admin", method="post")
+            .form-group
+                label(for="username") Username
+                input.form-control(type="text", name="username", placeholder="Username")
+            .form-group
+                label(for="password") Password
+                input.form-control(type="password", name="password", placeholder="Password")
+            Button.btn.btn-primary(type="submit", value="submit") Submit
+

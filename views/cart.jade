@@ -1,0 +1,37 @@
+extends layout
+
+
+block content
+    .container
+        h1 My Cart
+        .my-cart
+            table
+                tr 
+                    th Item
+                    th Qty.
+                    th Price
+                    th
+                - let total = 0;
+                each item, i in items
+                    tr
+                        td= item.bookName
+                        td
+                            //- input#qty-final(type="number", name="qty" value="#{item.bookQty}" min="1")
+                            div#qty-final= item.bookQty  
+                            a#remove-button(href="/cart/decrease/#{i}/#{item.bookName}/#{item.bookPrice}/#{item.bookQty}") &#9940;                              
+                        td= item.bookPrice*item.bookQty
+                        td
+                            a#remove-button(href="/cart/remove/#{i}") &#128465; 
+                    - total += item.bookPrice*item.bookQty;
+                tr 
+                    th(colspan="2") Total
+                    th(colspan="2") $#{total.toFixed(2)} 
+                    //- toFixed() is the function jekhane amra bole dite paari
+                    //- koto ghor porjonto doshomik value nibo
+            br
+            a.btn.btn-dark(href="/payments") Proceed 
+            a.btn.btn-dark(href="/") Continue shopping 
+            a.btn.btn-dark(href="/cart/clear") Clear Cart
+
+            
+                 

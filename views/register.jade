@@ -1,0 +1,37 @@
+extends layout
+block content
+    .container
+        h1 Register
+        p Please Register using the form below
+        ul.errors
+            if errors
+                - var count = 0;
+                //- each e in errors.errors
+                each e in errors
+                    //- jodi js e errors.mapped use na kori tahole ekhane errors.errors use kora laagto
+                    li.alert.alert-danger= e.msg
+                    - count++;
+                //- = count
+        form(method='post', action='/users/register', enctype='multipart/form-data')
+            .form-group
+                label Name
+                input.form-control(name='name', type='text', placeholder='Enter Name')
+            .form-group
+                label Email
+                input.form-control(name='email', type='email', placeholder='Enter Email')
+            .form-group
+                label Username
+                input.form-control(name='username', type='text', placeholder='Username')
+            .form-group
+                label Password
+                input.form-control(name='password', type='password', placeholder='Enter password')
+            .form-group
+                label Confirm Password
+                input.form-control(name='password2', type='password', placeholder='Enter password again')
+            .form-group
+                label Profile Picture
+                input.form-control(name='profile_image', type='file')
+            button.btn.btn-default.btn-dark(name='register', type='submit') Register
+
+
+
