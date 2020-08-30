@@ -19,7 +19,7 @@ router.use((req, res, next) => {
     let randomName = Math.random().toString().substring(2);
     let cookieName = "BN" + randomName; //BN are products that added(By Buynow)
     let cookie = req.cookies.$cookieName;
-    res.cookie(cookieName, global.bookInfo, {maxAge: 9000000, httpOnly: true, secure: true})
+    res.cookie(cookieName, global.bookInfo, {maxAge: 9000000, httpOnly: false, secure: true})
     console.log("book added");
     global.addItemToCookie = false;
   }
@@ -221,7 +221,7 @@ client.connect().then((client) => {
         bookPrice: req.params.bookprice,
         bookQty: req.params.qty - 1
       }
-      res.cookie(req.params.objectId, global.bookInfo);
+      res.cookie(req.params.objectId, global.bookInfo,{maxAge: 9000000, httpOnly: false, secure: true});
       res.redirect("/cart/decrease");
       console.log("updated item");
     }else{
