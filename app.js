@@ -54,7 +54,7 @@ app.use(function (req, res, next) {
     // no: set a new cookie
     let randomNumber=Math.random().toString();
     randomNumber=randomNumber.substring(2,randomNumber.length);
-    res.cookie('visitor',randomNumber, { maxAge: 900000, httpOnly: true, path: "/"});
+    res.cookie('visitor',randomNumber, { maxAge: 900000, httpOnly: false, path: "/"});
     
     console.log('cookie created successfully');
   } else {
